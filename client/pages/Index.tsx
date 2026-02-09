@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
-
   return (
     <Layout>
       {/* About Me Section */}
@@ -11,14 +10,17 @@ export default function Index() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Who am I?</h2>
           <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-            I am a Computer Science student and Software Engineering intern with experience building
-            production-grade systems, including AI-enhanced video processing pipelines and real-time
-            control software. At Xometrics, I developed and optimized Python-based tools used in
-            end-to-end workflows, focusing on automation, performance, and reliability.
+            I am a Computer Science student and Software Engineering intern with
+            experience building production-grade systems, including AI-enhanced
+            video processing pipelines and real-time control software. At
+            Xometrics, I developed and optimized Python-based tools used in
+            end-to-end workflows, focusing on automation, performance, and
+            reliability.
           </p>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            I also lead cross-functional engineering teams as President of the Miramar Engineering Club,
-            delivering award-winning software for an international ROV competition.
+            I also lead cross-functional engineering teams as President of the
+            Miramar Engineering Club, delivering award-winning software for an
+            international ROV competition.
           </p>
         </div>
       </section>
@@ -32,11 +34,13 @@ export default function Index() {
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 mb-4 leading-relaxed">
               Advanced automated background removal powered by{" "}
-              <span className="text-primary font-semibold">SAM2</span> (Segment Anything Model 2)
+              <span className="text-primary font-semibold">SAM2</span> (Segment
+              Anything Model 2)
             </p>
             <p className="text-base text-foreground/60 mb-8 max-w-2xl mx-auto">
-              Seamlessly isolate subjects from complex backgrounds in batch video processing.
-              Remove backgrounds, isolate gear and accessories, and composite over any background with precision.
+              Seamlessly isolate subjects from complex backgrounds in batch
+              video processing. Remove backgrounds, isolate gear and
+              accessories, and composite over any background with precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -62,23 +66,28 @@ export default function Index() {
       {/* Features Section */}
       <section className="py-16 md:py-24 border-t border-border">
         <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Key Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Key Features
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 title: "Batch Processing",
-                description: "Process multiple videos efficiently with automated workflow for large-scale operations"
+                description:
+                  "Process multiple videos efficiently with automated workflow for large-scale operations",
               },
               {
                 title: "Intelligent Segmentation",
-                description: "SAM2 powered isolation of subjects including accessories, cords, and light gear"
+                description:
+                  "SAM2 powered isolation of subjects including accessories, cords, and light gear",
               },
               {
                 title: "Clean Compositing",
-                description: "Professional background replacement with seamless integration over solid or custom backgrounds"
-              }
+                description:
+                  "Professional background replacement with seamless integration over solid or custom backgrounds",
+              },
             ].map((feature, i) => (
-              <div 
+              <div
                 key={i}
                 className="p-6 rounded-lg border border-border hover:border-primary/50 transition-colors bg-card hover:bg-card/80"
               >
@@ -93,16 +102,20 @@ export default function Index() {
       {/* Tech Stack Section */}
       <section className="py-16 md:py-24 border-t border-border">
         <div className="container">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Technology</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Technology
+          </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-            {["Python", "SAM2", "Video Processing", "Batch Operations"].map((tech) => (
-              <div 
-                key={tech}
-                className="p-4 rounded-lg bg-card border border-border text-center hover:border-primary/50 transition-colors"
-              >
-                <p className="font-medium text-sm">{tech}</p>
-              </div>
-            ))}
+            {["Python", "SAM2", "Video Processing", "Batch Operations"].map(
+              (tech) => (
+                <div
+                  key={tech}
+                  className="p-4 rounded-lg bg-card border border-border text-center hover:border-primary/50 transition-colors"
+                >
+                  <p className="font-medium text-sm">{tech}</p>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>

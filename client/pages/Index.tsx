@@ -40,6 +40,25 @@ export default function Index() {
         </div>
       </section>
 
+      {/* About Me Section */}
+      <section className="py-16 md:py-24 border-t border-border">
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">Who am I?</h2>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+              I am a Computer Science student and Software Engineering intern with experience building
+              production-grade systems, including AI-enhanced video processing pipelines and real-time
+              control software. At Xometrics, I developed and optimized Python-based tools used in
+              end-to-end workflows, focusing on automation, performance, and reliability.
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              I also lead cross-functional engineering teams as President of the Miramar Engineering Club,
+              delivering award-winning software for an international ROV competition.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 md:py-24 border-t border-border">
         <div className="container">

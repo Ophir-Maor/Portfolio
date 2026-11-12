@@ -32,14 +32,14 @@ Open the local URL printed by Vite. No environment variables or backend are requ
 ```text
 src/
   app/           Hash navigation and document titles
-  components/    Navigation, signal field, project illustrations
+  components/    Navigation, résumé showcase, project illustrations
   content/       Typed, editable profile, projects, and experience
   demos/         Interactive regression visualization
   layouts/       Shared site shell
   pages/         Homepage and reusable project-detail page
   styles/        Design tokens, responsive layout, reduced-motion support
   utils/         Regression calculation and conditional resume URL
-public/          Monogram favicon; optional resume PDF
+public/          Monogram favicon, résumé PDF, first-page preview
 tests/          Regression correctness tests
 ```
 
@@ -47,7 +47,17 @@ tests/          Regression correctness tests
 
 Edit `src/content/portfolio.ts` to verify copy and add project details. Optional challenges, outcome, and lessons fields render when supplied. All current project graphics are conceptual SVG illustrations, not screenshots. No performance claims are made. Configure missing email and LinkedIn in `profile`; empty values hide those links.
 
-Place your real PDF at `public/Ophir_Maor_Resume.pdf`, then restart Vite or rebuild. Navigation and hero resume links automatically appear and open the PDF in a new tab, where browser download controls are available. No resume is currently included.
+The supplied academic PDF is included at `public/Ophir_Maor_Resume.pdf` (renamed from `Ophir-Maor-Academic-Resume copy.pdf`, contents unchanged). The hero uses `public/resume-preview.png`, a raster rendering of its first page. Clicking it or “View Résumé” opens the original PDF in a new tab; “Download PDF” saves it.
+
+To update the document, replace the PDF and regenerate its preview. On macOS:
+
+```sh
+swift -module-cache-path /private/tmp/portfolio-swift-cache scripts/render-resume.swift
+```
+
+This maintenance helper uses native PDFKit, paints the actual first page onto white, and exports an lossless PNG. It is not run at build time and adds no runtime dependencies. On other platforms, export page one at 1224 × 1584 pixels to `public/resume-preview.png`. Restart Vite or rebuild after changing assets. Keep the preview synchronized with the PDF.
+
+If the PDF is absent at startup/build, links disappear and a clearly labeled profile summary uses verified portfolio data. If only the image is absent, a document cover links to the PDF without a broken image. The full-size PDF is the accessible reading source; the hero image is a visual preview.
 
 ## Routing and future deployment
 

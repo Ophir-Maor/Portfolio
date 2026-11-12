@@ -1,4 +1,4 @@
-import SignalField from '../components/SignalField';
+import ResumeShowcase from '../components/ResumeShowcase';
 import ProjectVisual from '../components/ProjectVisual';
 import { resumeUrl } from '../utils/assets';
 import { experience, profile, projects } from '../content/portfolio';
@@ -33,7 +33,7 @@ export default function HomePage() {
             )}
           </div>
         </div>
-        <SignalField />
+        <ResumeShowcase />
         <div className="hero-bottom mono">
           <span>THINK DEEPLY. BUILD SOMETHING REAL.</span>
           <a href="#work">SCROLL TO EXPLORE ↓</a>

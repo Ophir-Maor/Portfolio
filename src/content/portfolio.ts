@@ -234,7 +234,7 @@ export const projects: Project[] = [
         heading: 'Experiments, not final rankings',
         paragraphs: [
           'The project progressed through repeated rounds of model development, validation, and ensembling during Fall 2026. I compared holdout results and performance across price ranges rather than choosing models solely for their sophistication.',
-          'No final competition RMSE or leaderboard placement is claimed here. The diagram below describes the experimental method; the separate regression lab uses synthetic data and does not report competition results.',
+          'The Model Evolution chart shows selected historical public leaderboard checkpoints reported during the competition. These scores are separate from local holdout results and do not establish a private leaderboard score or final placement. The separate regression lab uses synthetic data.',
         ],
       },
     ],

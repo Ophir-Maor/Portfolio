@@ -102,7 +102,9 @@ export default function HomePage() {
         <div>
           <h2>About me</h2>
           <p className="about-lead">{profile.about}</p>
-          <p>{profile.personal}</p>
+          {profile.aboutParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </section>
       <section id="contact" className="section container contact-section">
@@ -138,8 +140,17 @@ export default function HomePage() {
                 </a>
               ))}
             {profile.email && (
-              <a className="contact-button" href={`mailto:${profile.email}`}>
-                Email ↗
+              <a
+                className="contact-button contact-email"
+                href={`mailto:${profile.email}`}
+              >
+                <span>
+                  <strong>Email</strong>
+                  <span>{profile.email}</span>
+                </span>
+                <span className="contact-arrow" aria-hidden="true">
+                  ↗
+                </span>
               </a>
             )}
           </div>

@@ -29,21 +29,24 @@ export interface Project {
 export const profile = {
   name: 'Ophir Maor',
   github: 'https://github.com/Ophir-Maor',
-  email: '',
+  email: 'ophir.maor10@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ophir-maor/',
   portrait: 'ophir.jpg',
-  personal:
-    'I also love traveling and exploring new places. When I’m staying in, I enjoy playing video games.',
+  aboutParagraphs: [
+    'Outside of work, I love surfing, getting a workout in, and spending time with friends.',
+    'I also love traveling and exploring new places. In summer 2026, I got to visit New York. The summer before, I spent a month traveling through Asia, primarily Japan, Thailand, and the Philippines.',
+    'When I’m staying in, I enjoy playing video games. Recently I’ve been getting back into Counter-Strike: Global Offensive, and I’ve always loved Grand Theft Auto and Call of Duty. I’m looking forward to Grand Theft Auto VI on PC!',
+  ],
   contact: {
     heading: 'Feel free to reach out!',
     description:
-      'You can message me on LinkedIn or find my projects on GitHub.',
+      'Send me an email, message me on LinkedIn, or find my projects on GitHub.',
   },
   headline: 'Building intelligent systems, from models to products.',
   description:
-    'I’m a computer science student at UC San Diego. My work spans machine learning, computer vision, and full-stack development.',
+    'I’m currently an undergraduate computer science student, and I’ll begin a master’s in computer science in 2027. My work spans machine learning, computer vision, and full-stack development.',
   about:
-    'Outside of work, I love surfing, getting a workout in, and spending time with friends.',
+    'Thank you for taking a minute to look through my site! I’m Ophir, pronounced “o-fear.”',
 };
 export const projects: Project[] = [
   {

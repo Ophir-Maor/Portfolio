@@ -93,7 +93,7 @@ export default function HomePage() {
           <img
             className="about-portrait"
             src={projectMediaUrl(profile.portrait)!}
-            alt="Ophir Maor in front of a Charlotte, North Carolina mural."
+            alt="Ophir Maor at Charlotte, North Carolina airport during a 5 a.m. layover on the way to New York in summer 2026."
             loading="lazy"
             width="634"
             height="1124"

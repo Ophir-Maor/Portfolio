@@ -33,9 +33,9 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/ophir-maor/',
   portrait: 'ophir.jpg',
   personal:
-    'Outside of software, I love traveling, working out, hanging out with friends, playing video games, and surfing.',
+    'I also love traveling and exploring new places. When I’m staying in, I enjoy playing video games.',
   contact: {
-    heading: 'Feel free to reach out.',
+    heading: 'Feel free to reach out!',
     description:
       'You can message me on LinkedIn or find my projects on GitHub.',
   },
@@ -43,7 +43,7 @@ export const profile = {
   description:
     'I’m a computer science student at UC San Diego. My work spans machine learning, computer vision, and full-stack development.',
   about:
-    'I study computer science at UC San Diego and have been accepted into the BS/MS pathway. I’ve worked on video-processing tools, internal enterprise applications, and machine learning projects.',
+    'Outside of work, I love surfing, getting a workout in, and spending time with friends.',
 };
 export const projects: Project[] = [
   {

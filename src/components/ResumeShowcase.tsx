@@ -5,8 +5,8 @@ export default function ResumeShowcase() {
   return (
     <aside className="resume-showcase" aria-label="Résumé showcase">
       <div className="resume-heading mono">
-        <span>THE EXPERIENCE, ON PAPER</span>
-        <span>{resumeUrl ? 'RÉSUMÉ / PDF' : 'PROFILE / PREVIEW'}</span>
+        <span>{resumeUrl ? 'RÉSUMÉ' : 'PROFILE'}</span>
+        <span>{resumeUrl ? 'PDF' : 'PREVIEW'}</span>
       </div>
       {resumeUrl ? (
         <>

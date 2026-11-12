@@ -50,7 +50,7 @@ export default function Navigation() {
           className="nav-contact"
           onClick={() => setOpen(false)}
         >
-          Let’s connect <span>↗</span>
+          Contact <span>↗</span>
         </a>
       </nav>
     </header>

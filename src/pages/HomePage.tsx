@@ -18,27 +18,20 @@ export default function HomePage() {
           <p className="hero-description entrance">{profile.description}</p>
           <div className="hero-actions entrance">
             <a className="button" href="#work">
-              Explore my work <span>↘</span>
+              View my work <span>↘</span>
             </a>
           </div>
         </div>
         <ResumeShowcase />
-        <div className="hero-bottom mono">
-          <span>THINK DEEPLY. BUILD SOMETHING REAL.</span>
-          <a href="#work">SCROLL TO EXPLORE ↓</a>
-        </div>
       </section>
       <section id="work" className="section container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / IDEAS INTO IMPLEMENTATION</p>
-            <h2>
-              Selected work<span className="mint">.</span>
-            </h2>
+            <h2>Selected work</h2>
           </div>
           <p>
-            A selection of systems, experiments,
-            <br /> and products I’ve built.
+            Projects from internships, coursework,
+            <br /> and building with friends.
           </p>
         </div>
         <div className="projects-grid">
@@ -56,9 +49,7 @@ export default function HomePage() {
               </a>
               <div className="project-copy">
                 <div className="project-meta mono">
-                  <span>
-                    {String(i + 1).padStart(2, '0')} / {p.title}
-                  </span>
+                  <span>{p.category}</span>
                 </div>
                 <h3>
                   <a href={`#/work/${p.id}`}>{p.name}</a>
@@ -74,7 +65,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a className="text-link" href={`#/work/${p.id}`}>
-                  Explore project <span>↗</span>
+                  Read project notes <span>↗</span>
                 </a>
               </div>
             </article>
@@ -83,14 +74,7 @@ export default function HomePage() {
       </section>
       <section className="section container experience-section">
         <div>
-          <p className="eyebrow">02 / THE PATH SO FAR</p>
-          <h2>
-            Learning.
-            <br />
-            Building.
-            <br />
-            <span className="muted">Connecting dots.</span>
-          </h2>
+          <h2>Experience &amp; education</h2>
         </div>
         <div className="timeline">
           {experience.map(([date, company, role, description]) => (
@@ -116,50 +100,46 @@ export default function HomePage() {
           />
         )}
         <div>
-          <p className="eyebrow">03 / THE PERSON BEHIND THE PROJECTS</p>
-          <h2>
-            Beyond the code<span className="mint">.</span>
-          </h2>
+          <h2>About me</h2>
           <p className="about-lead">{profile.about}</p>
           <p>{profile.personal}</p>
-          <div className="interests mono">
-            {profile.interests.map((interest) => (
-              <span key={interest}>↗ {interest}</span>
-            ))}
-          </div>
         </div>
       </section>
       <section id="contact" className="section container contact-section">
-        <p className="eyebrow">04 / WHAT’S NEXT?</p>
-        <h2>
-          Let’s build something
-          <br />
-          <span className="mint">meaningful.</span>
-        </h2>
+        <h2>{profile.contact.heading}</h2>
         <div className="contact-bottom">
-          <p>
-            Interesting problems. Thoughtful people.
-            <br />
-            Software that makes a difference.
-          </p>
+          <p>{profile.contact.description}</p>
           <div className="contact-links">
-            <a
-              className="button"
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗
-            </a>
-            {profile.email && <a href={`mailto:${profile.email}`}>Email ↗</a>}
-            {profile.linkedin && (
-              <a
-                className="text-link"
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn ↗
+            {[
+              {
+                label: 'LinkedIn',
+                url: profile.linkedin,
+                detail: 'Send me a message',
+              },
+              { label: 'GitHub', url: profile.github, detail: 'See my code' },
+            ]
+              .filter((link) => link.url)
+              .map((link) => (
+                <a
+                  key={link.label}
+                  className="contact-button"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>
+                    <strong>{link.label}</strong>
+                    <span>{link.detail}</span>
+                  </span>
+                  <span className="contact-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ))}
+            {profile.email && (
+              <a className="contact-button" href={`mailto:${profile.email}`}>
+                Email ↗
               </a>
             )}
           </div>

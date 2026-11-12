@@ -32,20 +32,24 @@ export const profile = {
   email: '',
   linkedin: 'https://www.linkedin.com/in/ophir-maor/',
   portrait: 'ophir.jpg',
-  interests: ['Traveling', 'Working out', 'Friends', 'Video games', 'Surfing'],
   personal:
     'Outside of software, I love traveling, working out, hanging out with friends, playing video games, and surfing.',
+  contact: {
+    heading: 'Feel free to reach out.',
+    description:
+      'You can message me on LinkedIn or find my projects on GitHub.',
+  },
   headline: 'Building intelligent systems, from models to products.',
   description:
-    'Computer Science at UC San Diego. I work across machine learning, computer vision, and full-stack engineering, turning complex ideas into practical software.',
+    'I’m a computer science student at UC San Diego. My work spans machine learning, computer vision, and full-stack development.',
   about:
-    "I'm a computer science student and software engineer interested in building intelligent systems that solve real problems. I enjoy working across the stack, from experimenting with machine learning models to developing software that people actually use.",
+    'I study computer science at UC San Diego and have been accepted into the BS/MS pathway. I’ve worked on video-processing tools, internal enterprise applications, and machine learning projects.',
 };
 export const projects: Project[] = [
   {
     id: 'xometrics',
     title: 'Automated Video Segmentation & Processing',
-    name: 'Automating the video-editing workflow.',
+    name: 'Xometrics video pipeline',
     category: 'Computer vision',
     context: 'Xometrics · Software Engineering Intern · Summer 2025',
     description:
@@ -118,7 +122,7 @@ export const projects: Project[] = [
   {
     id: 'brandes',
     title: 'SQL Server Execution Service (SSES)',
-    name: 'Modernizing a production platform.',
+    name: 'SQL Server Execution Service',
     category: 'Full-stack engineering',
     context:
       'Brandes Investment Partners · Software Engineering Intern · Summer 2026',
@@ -184,7 +188,7 @@ export const projects: Project[] = [
   {
     id: 'airbnb',
     title: 'Machine Learning for Airbnb Price Prediction',
-    name: 'Predicting prices. Testing assumptions.',
+    name: 'Airbnb price prediction',
     category: 'Machine learning',
     context: 'UCSD CSE 151A · Fall 2026 · Machine Learning Course Competition',
     description:
@@ -269,7 +273,7 @@ export const projects: Project[] = [
   {
     id: 'study-agent',
     title: 'AI Study Copilot',
-    name: 'Turning study context into useful review.',
+    name: 'AI Study Copilot',
     category: 'Applied AI',
     context: 'DiamondHacks 2026 · Three-person team · Hackathon prototype',
     description:
@@ -348,7 +352,7 @@ export const projects: Project[] = [
   {
     id: 'rov',
     title: 'Below the Surface · MATE ROV World Championship',
-    name: 'Below the surface. On the world stage.',
+    name: 'MATE ROV World Championship',
     category: 'Robotics',
     media: [
       {

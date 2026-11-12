@@ -46,11 +46,7 @@ export default function ModelEvolution({
       </div>
       {!compact && (
         <div className="model-intro">
-          <h2>
-            Better predictions.
-            <br />
-            <span className="mint">One experiment at a time.</span>
-          </h2>
+          <h2>Public leaderboard progress</h2>
           <p>
             Selected historical Kaggle public leaderboard scores. Lower RMSE is
             better.

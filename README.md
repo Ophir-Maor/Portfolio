@@ -91,7 +91,7 @@ Authentic Study Agent screenshots are expected at:
 - `public/projects/study-agent/control-panel.png`
 - `public/projects/study-agent/session-summary.png`
 
-Both authentic screenshots are included. The typed media entries already include captions and alt text. Add the real PNGs, restart Vite or rebuild, and the case study will display them with full-size links. Missing files are omitted rather than replaced with invented images. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Actual Xometrics footage has not been supplied; its graphic remains explicitly conceptual.
+Both authentic screenshots are included. The typed media entries include captions, alt text, and full-size links. Referenced project images are committed public assets and served directly using the Vite base path. `npm test` checks that every referenced image is present. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Actual Xometrics footage has not been supplied; its graphic remains explicitly conceptual.
 
 Before deployment, verify the Xometrics throughput context, review the employer-facing descriptions for confidentiality, confirm your ROV role wording, and inspect screenshot content for information you do not want public.
 

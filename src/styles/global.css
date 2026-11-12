@@ -420,109 +420,6 @@ svg {
     transform: translateY(80px);
   }
 }
-.lab-section {
-  background: #0c111c;
-  border-block: 1px solid var(--border);
-}
-.lab-panel {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  border: 1px solid var(--border);
-}
-.lab-chart {
-  padding: 28px 24px;
-  align-self: center;
-  min-width: 0;
-}
-.chart-heading {
-  font-size: 8px;
-  letter-spacing: 0.07em;
-  color: var(--color-muted);
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 26px;
-}
-.synthetic {
-  color: var(--color-mint);
-}
-.chart-legend {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 8px;
-  margin-top: 22px;
-}
-.lab-controls {
-  padding: 35px;
-  border-left: 1px solid var(--border);
-  background: #101624;
-}
-.lab-controls .eyebrow {
-  font-size: 8px;
-}
-.lab-controls h3 {
-  font-size: 27px;
-  margin: 15px 0;
-}
-.lab-controls p {
-  font-size: 12px;
-}
-.lab-controls label {
-  display: block;
-  font-size: 11px;
-  margin-top: 28px;
-}
-.lab-controls label output {
-  float: right;
-  font-family: var(--font-mono);
-  color: var(--color-mint);
-}
-input[type='range'] {
-  width: 100%;
-  margin: 18px 0 10px;
-  accent-color: var(--color-mint);
-  cursor: pointer;
-}
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  color: var(--color-muted);
-}
-.lab-controls .checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-muted);
-  margin: 22px 0;
-}
-input[type='checkbox'] {
-  accent-color: var(--color-mint);
-  width: 16px;
-  height: 16px;
-}
-.metric {
-  border-top: 1px solid var(--border);
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.metric span {
-  font-size: 8px;
-  color: var(--color-muted);
-}
-.metric output {
-  font-family: var(--font-display);
-  font-size: 32px;
-  color: var(--color-mint);
-}
-.lab-controls .fine {
-  font-size: 10px;
-  margin-top: 18px;
-}
 .experience-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -747,12 +644,6 @@ input[type='checkbox'] {
   .project h3 {
     font-size: 25px;
   }
-  .lab-panel {
-    grid-template-columns: 1.3fr 1fr;
-  }
-  .lab-controls {
-    padding: 25px;
-  }
   .about-section {
     gap: 50px;
   }
@@ -851,25 +742,6 @@ input[type='checkbox'] {
   }
   .project-image-link svg {
     min-height: 0;
-  }
-  .lab-panel {
-    display: block;
-  }
-  .lab-chart {
-    padding: 25px 10px;
-  }
-  .chart-heading {
-    font-size: 6px;
-    margin-inline: 8px;
-  }
-  .chart-legend {
-    gap: 12px;
-    font-size: 7px;
-  }
-  .lab-controls {
-    border-left: 0;
-    border-top: 1px solid var(--border);
-    padding: 25px;
   }
   .experience-section {
     display: block;
@@ -1295,7 +1167,7 @@ input[type='checkbox'] {
   }
 }
 
-/* Reported Kaggle public scores, distinct from the synthetic regression lab. */
+/* Reported Kaggle public leaderboard scores. */
 .model-evolution {
   background:
     radial-gradient(ellipse at 90% 10%, #9c98f70d, transparent 65%), #101624;

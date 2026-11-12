@@ -1,7 +1,7 @@
 # Ophir Maor | Portfolio foundation
 
 A minimal React + TypeScript application built with Vite and Tailwind CSS.
-First complete portfolio draft: selected work, original conceptual project visuals, project notes, a synthetic regression experiment, experience, and contact. GitHub Pages deployment is prepared in `.github/workflows/deploy.yml`; publication requires merging the release and configuring Pages.
+First complete portfolio draft: selected work, original conceptual project visuals, project notes, experience, and contact. GitHub Pages deployment is prepared in `.github/workflows/deploy.yml`; publication requires merging the release and configuring Pages.
 
 ## Local development
 
@@ -34,13 +34,12 @@ src/
   app/           Hash navigation and document titles
   components/    Navigation, résumé showcase, project illustrations
   content/       Typed, editable profile, projects, and experience
-  demos/         Interactive regression visualization
   layouts/       Shared site shell
   pages/         Homepage and reusable project-detail page
   styles/        Design tokens, responsive layout, reduced-motion support
-  utils/         Regression calculation and conditional resume URL
+  utils/         Public asset URLs and conditional resume URL
 public/          Monogram favicon, résumé PDF, first-page preview
-tests/          Regression correctness tests
+tests/          Asset and leaderboard-data tests
 ```
 
 ## Content and resume
@@ -61,7 +60,7 @@ If the PDF is absent at startup/build, links disappear and a clearly labeled pro
 
 ## Routing and future deployment
 
-Case studies use `#/work/project-id`. Section links use `#work`, `#lab`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
+Case studies use `#/work/project-id`. Section links use `#work`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
 
 `npm run build` produces static `dist/` output. Vite's base is `/` for the eventual custom domain `ophirmaor.com`. For repository-subpath hosting, adjust the Vite base. The Pages workflow is included; no CNAME or DNS changes were made. Canonical metadata names the intended domain, not a claim of current deployment.
 
@@ -69,7 +68,7 @@ Typography uses Google Fonts (Space Grotesk, Inter, IBM Plex Mono) with local sy
 
 ## Validation
 
-Run `npm run check`, `npm test`, and `npm run build`. Tests verify the synthetic least-squares fit, noise behavior, determinism, and residual properties. Manual review should verify all project facts, add real media and technical outcomes, and review the actual resume PDF before publishing.
+Run `npm run check`, `npm test`, and `npm run build`. Tests verify referenced images and reported leaderboard checkpoint data and improvement calculations. Manual review should verify all project facts, add real media and technical outcomes, and review the actual resume PDF before publishing.
 
 ## Environment and history
 

@@ -2,7 +2,6 @@ import ResumeShowcase from '../components/ResumeShowcase';
 import ProjectArtwork from '../components/ProjectArtwork';
 import { projectMediaUrl } from '../utils/assets';
 import { experience, profile, projects } from '../content/portfolio';
-import RegressionLab from '../demos/RegressionLab';
 export default function HomePage() {
   return (
     <main id="main">
@@ -82,26 +81,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <section id="lab" className="section lab-section">
-        <div className="container">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">02 / A LITTLE LESS ABSTRACT</p>
-              <h2>
-                The lab<span className="mint">.</span>
-              </h2>
-            </div>
-            <p>
-              Small experiments that make
-              <br /> the engineering visible.
-            </p>
-          </div>
-          <RegressionLab />
-        </div>
-      </section>
       <section className="section container experience-section">
         <div>
-          <p className="eyebrow">03 / THE PATH SO FAR</p>
+          <p className="eyebrow">02 / THE PATH SO FAR</p>
           <h2>
             Learning.
             <br />
@@ -134,7 +116,7 @@ export default function HomePage() {
           />
         )}
         <div>
-          <p className="eyebrow">04 / THE PERSON BEHIND THE PROJECTS</p>
+          <p className="eyebrow">03 / THE PERSON BEHIND THE PROJECTS</p>
           <h2>
             Beyond the code<span className="mint">.</span>
           </h2>
@@ -148,7 +130,7 @@ export default function HomePage() {
         </div>
       </section>
       <section id="contact" className="section container contact-section">
-        <p className="eyebrow">05 / WHAT’S NEXT?</p>
+        <p className="eyebrow">04 / WHAT’S NEXT?</p>
         <h2>
           Let’s build something
           <br />

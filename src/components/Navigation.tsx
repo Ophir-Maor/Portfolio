@@ -31,7 +31,7 @@ export default function Navigation() {
           }
         }}
       >
-        {['Work', 'Lab', 'About'].map((label) => (
+        {['Work', 'About'].map((label) => (
           <a
             key={label}
             href={`#${label.toLowerCase()}`}

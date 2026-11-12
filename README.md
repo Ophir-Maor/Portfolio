@@ -1,7 +1,7 @@
 # Ophir Maor — Portfolio foundation
 
 A minimal React + TypeScript application built with Vite and Tailwind CSS.
-The homepage is a development placeholder; the portfolio design and features are intentionally deferred.
+First complete portfolio draft: selected work, original conceptual project visuals, project notes, a synthetic regression experiment, experience, and contact. No deployment has been configured.
 
 ## Local development
 
@@ -31,23 +31,35 @@ Open the local URL printed by Vite. No environment variables or backend are requ
 
 ```text
 src/
-  app/App.tsx          Application composition
-  pages/HomePage.tsx   Placeholder homepage
-  styles/global.css   Tailwind entry and neutral baseline
-  main.tsx            React entry
-  vite-env.d.ts       Vite client types
+  app/           Hash navigation and document titles
+  components/    Navigation, signal field, project illustrations
+  content/       Typed, editable profile, projects, and experience
+  demos/         Interactive regression visualization
+  layouts/       Shared site shell
+  pages/         Homepage and reusable project-detail page
+  styles/        Design tokens, responsive layout, reduced-motion support
+  utils/         Regression calculation and conditional resume URL
+public/          Monogram favicon; optional resume PDF
+tests/          Regression correctness tests
 ```
 
-Add `src/components`, `src/features`, `src/hooks`, and `src/lib` when actual shared code needs them. Add static assets to `public/` or imported assets alongside their features when needed.
+## Content and resume
 
-## Future GitHub Pages deployment
+Edit `src/content/portfolio.ts` to verify copy and add project details. Optional challenges, outcome, and lessons fields render when supplied. All current project graphics are conceptual SVG illustrations, not screenshots. No performance claims are made. Configure missing email and LinkedIn in `profile`; empty values hide those links.
 
-`npm run build` produces a static `dist/` directory suitable for GitHub Pages.
-Vite's `base` is `/` for the planned custom domain `ophirmaor.com`.
-A repository-subpath preview would require a matching base path.
+Place your real PDF at `public/Ophir_Maor_Resume.pdf`, then restart Vite or rebuild. Navigation and hero resume links automatically appear and open the PDF in a new tab, where browser download controls are available. No resume is currently included.
 
-No deployment workflow, CNAME, DNS change, or routing library is configured.
-Configure hosting and domain ownership separately before publishing. If routes are added later, plan direct-link handling for static hosting.
+## Routing and future deployment
+
+Case studies use `#/work/project-id`. Section links use `#work`, `#lab`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
+
+`npm run build` produces static `dist/` output. Vite's base is `/` for the eventual custom domain `ophirmaor.com`. For repository-subpath hosting, adjust the Vite base. No workflow, CNAME, or DNS changes were made. Canonical metadata names the intended domain, not a claim of current deployment.
+
+Typography uses Google Fonts (Space Grotesk, Inter, IBM Plex Mono) with local system fallbacks. Core functionality requires no external APIs. Consider self-hosting fonts before launch. Motion is CSS/SVG with reduced-motion fallbacks; no animation or chart library is installed.
+
+## Validation
+
+Run `npm run check`, `npm test`, and `npm run build`. Tests verify the synthetic least-squares fit, noise behavior, determinism, and residual properties. Manual review should verify all project facts, add real media and technical outcomes, and test the actual resume PDF when supplied.
 
 ## Environment and history
 

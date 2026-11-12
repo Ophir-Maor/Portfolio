@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import type { Project } from '../content/portfolio';
 import { projects } from '../content/portfolio';
 import ProjectVisual from '../components/ProjectVisual';
+import { projectMediaUrl } from '../utils/assets';
+
 export default function ProjectPage({ project }: { project: Project }) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
@@ -11,25 +13,35 @@ export default function ProjectPage({ project }: { project: Project }) {
     projects[
       (projects.findIndex((p) => p.id === project.id) + 1) % projects.length
     ]!;
-  const sections = [
-    ['The problem', project.problem],
-    ['My approach', project.approach],
-    ['Technical challenges', project.challenges],
-    ['Outcome', project.outcome],
-    ['Lessons learned', project.lessons],
-  ];
+  const media = (project.media ?? []).flatMap((image) => {
+    const url = projectMediaUrl(image.path);
+    return url ? [{ ...image, url }] : [];
+  });
   return (
-    <main id="main" className="container case-study">
+    <main id="main" className={`container case-study case-${project.id}`}>
       <a className="text-link" href="#work">
         ← All work
       </a>
-      <p className="eyebrow">{project.title} / PROJECT NOTES</p>
+      <p className="eyebrow">{project.category} / CASE STUDY</p>
       <h1 ref={heading} tabIndex={-1}>
-        {project.name}
+        {project.title}
       </h1>
       <p className="case-intro">{project.description}</p>
       <p className="context">{project.context}</p>
       <ProjectVisual id={project.id} />
+      {project.highlight && (
+        <p className="case-highlight">{project.highlight}</p>
+      )}
+      {project.awards && (
+        <div
+          className="case-awards"
+          aria-label="Miramar Water Jets team achievements"
+        >
+          {project.awards.map((award) => (
+            <strong key={award}>{award}</strong>
+          ))}
+        </div>
+      )}
       <div className="case-body">
         <aside>
           <p className="eyebrow">TOOLS & TECHNOLOGIES</p>
@@ -38,28 +50,113 @@ export default function ProjectPage({ project }: { project: Project }) {
               <li key={t}>{t}</li>
             ))}
           </ul>
+          <nav className="case-toc" aria-label="Case study contents">
+            {project.sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#/work/${project.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(section.id)?.scrollIntoView({
+                    behavior: window.matchMedia(
+                      '(prefers-reduced-motion: reduce)',
+                    ).matches
+                      ? 'instant'
+                      : 'smooth',
+                  });
+                  document
+                    .getElementById(section.id)
+                    ?.focus({ preventScroll: true });
+                }}
+              >
+                {section.heading}
+              </a>
+            ))}
+          </nav>
           <p className="fine">
-            All visuals are original conceptual illustrations, not production
-            screenshots.
+            Project graphics are conceptual illustrations. Any authentic
+            screenshots are captioned separately.
           </p>
+          {project.note && <p className="case-note">{project.note}</p>}
         </aside>
         <div>
-          {sections
-            .filter(([, copy]) => copy)
-            .map(([title, copy]) => (
-              <section key={title}>
-                <h2>{title}</h2>
-                <p>{copy}</p>
-              </section>
-            ))}
-          <section className="coming-soon">
-            <p className="eyebrow">A WORK IN PROGRESS</p>
-            <h2>More details coming soon.</h2>
-            <p>
-              Verified technical challenges, outcomes, lessons, and project
-              media will be added as this case study develops.
-            </p>
-          </section>
+          {project.sections.map((section) => (
+            <section key={section.id} id={section.id} tabIndex={-1}>
+              <h2>{section.heading}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              {section.bullets && (
+                <ul className="case-bullets">
+                  {section.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+          {project.flow && (
+            <figure className="case-flow">
+              <figcaption>{project.flow.label}</figcaption>
+              <ol>
+                {project.flow.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </figure>
+          )}
+          {project.comparison && (
+            <section className="case-comparison">
+              <h2>Comparing experimental choices</h2>
+              {project.comparison.map((item) => (
+                <article key={item.name}>
+                  <h3>{item.name}</h3>
+                  <p>{item.detail}</p>
+                </article>
+              ))}
+            </section>
+          )}
+          {media.length > 0 && (
+            <section className="case-gallery">
+              <h2>Inside the prototype</h2>
+              {media.map((image) => (
+                <figure key={image.path}>
+                  <a
+                    href={image.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Enlarge screenshot in a new tab: ${image.alt}`}
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                  <figcaption>
+                    {image.caption}{' '}
+                    <span className="mint">Open full-size ↗</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </section>
+          )}
+          {project.sources && (
+            <section className="case-sources">
+              <h2>Sources & team documentation</h2>
+              {project.sources.map((source) => (
+                <a
+                  key={source.url}
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {source.label} ↗
+                </a>
+              ))}
+            </section>
+          )}
         </div>
       </div>
       <a className="next-project" href={`#/work/${next.id}`}>

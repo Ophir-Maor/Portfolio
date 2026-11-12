@@ -45,7 +45,7 @@ tests/          Regression correctness tests
 
 ## Content and resume
 
-Edit `src/content/portfolio.ts` to verify copy and add project details. Optional challenges, outcome, and lessons fields render when supplied. All current project graphics are conceptual SVG illustrations, not screenshots. No performance claims are made. Configure missing email and LinkedIn in `profile`; empty values hide those links.
+Edit `src/content/portfolio.ts` to verify copy and add project details. Project narratives use ordered, typed `sections` with headings, paragraphs, and optional bullet lists. Optional flow diagrams, comparison notes, highlights, awards, sources, and media render only when supplied. All current project graphics are conceptual SVG illustrations, not screenshots. No performance claims are made. Configure missing email and LinkedIn in `profile`; empty values hide those links.
 
 The supplied academic PDF is included at `public/Ophir_Maor_Resume.pdf` (renamed from `Ophir-Maor-Academic-Resume copy.pdf`, contents unchanged). The hero uses `public/resume-preview.png`, a raster rendering of its first page. Clicking it or “View Résumé” opens the original PDF in a new tab; “Download PDF” saves it.
 
@@ -69,7 +69,7 @@ Typography uses Google Fonts (Space Grotesk, Inter, IBM Plex Mono) with local sy
 
 ## Validation
 
-Run `npm run check`, `npm test`, and `npm run build`. Tests verify the synthetic least-squares fit, noise behavior, determinism, and residual properties. Manual review should verify all project facts, add real media and technical outcomes, and test the actual resume PDF when supplied.
+Run `npm run check`, `npm test`, and `npm run build`. Tests verify the synthetic least-squares fit, noise behavior, determinism, and residual properties. Manual review should verify all project facts, add real media and technical outcomes, and review the actual resume PDF before publishing.
 
 ## Environment and history
 
@@ -81,3 +81,16 @@ The original site is preserved at local branch `backup/portfolio-v1` and annotat
 ## Known tooling advisory
 
 At initialization, `npm audit` reports 10 moderate findings in the ESLint/typescript-eslint dependency chain rooted in minimatch's globparts amplification advisory (GHSA-g3hv-75wg-m249). `npm audit --omit=dev` reports zero findings. No forced downgrade or cross-major dependency override was applied; revisit compatible upstream fixes before expanding CI.
+
+## Case-study content and assets
+
+The project IDs and hash routes remain unchanged. ROV achievements are attributed to the Miramar Water Jets team, with linked college and competition documentation. Personal subsystem ownership is not inferred. Xometrics throughput is a user-supplied approximate batch-workflow result; no undefined segmentation-success percentage is published. Airbnb has no claimed final score or placement. Brandes content stays at the level of contributions and does not expose internal architecture.
+
+Authentic Study Agent screenshots are expected at:
+
+- `public/projects/study-agent/control-panel.png`
+- `public/projects/study-agent/session-summary.png`
+
+Both files are currently missing. The typed media entries already include captions and alt text. Add the real PNGs, restart Vite or rebuild, and the case study will display them with full-size links. Missing files are omitted rather than replaced with invented images. Screenshots represent one example session, not aggregate performance. ROV photos and actual Xometrics footage have not been supplied; existing graphics remain explicitly conceptual.
+
+Before deployment, verify the Xometrics throughput context, review the employer-facing descriptions for confidentiality, confirm your ROV role wording, and inspect screenshot content for information you do not want public.

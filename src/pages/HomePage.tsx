@@ -1,6 +1,5 @@
 import ResumeShowcase from '../components/ResumeShowcase';
 import ProjectVisual from '../components/ProjectVisual';
-import { resumeUrl } from '../utils/assets';
 import { experience, profile, projects } from '../content/portfolio';
 import RegressionLab from '../demos/RegressionLab';
 export default function HomePage() {
@@ -21,16 +20,6 @@ export default function HomePage() {
             <a className="button" href="#work">
               Explore my work <span>↘</span>
             </a>
-            {resumeUrl && (
-              <a
-                className="text-link"
-                href={resumeUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Resume ↗
-              </a>
-            )}
           </div>
         </div>
         <ResumeShowcase />
@@ -76,6 +65,9 @@ export default function HomePage() {
                 </h3>
                 <p className="context">{p.context}</p>
                 <p>{p.description}</p>
+                {p.highlight && (
+                  <p className="project-highlight">{p.highlight}</p>
+                )}
                 <ul className="tech-list" aria-label="Technologies">
                   {p.technologies.slice(0, 4).map((t) => (
                     <li key={t}>{t}</li>

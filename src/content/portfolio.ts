@@ -30,10 +30,14 @@ export const profile = {
   name: 'Ophir Maor',
   github: 'https://github.com/Ophir-Maor',
   email: '',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/ophir-maor/',
+  portrait: 'ophir.jpg',
+  interests: ['Traveling', 'Working out', 'Friends', 'Video games', 'Surfing'],
+  personal:
+    'Outside of software, I love traveling, working out, hanging out with friends, playing video games, and surfing.',
   headline: 'Building intelligent systems, from models to products.',
   description:
-    'Computer Science at UC San Diego. I work across machine learning, computer vision, and full-stack engineering—turning complex ideas into practical software.',
+    'Computer Science at UC San Diego. I work across machine learning, computer vision, and full-stack engineering, turning complex ideas into practical software.',
   about:
     "I'm a computer science student and software engineer interested in building intelligent systems that solve real problems. I enjoy working across the stack, from experimenting with machine learning models to developing software that people actually use.",
 };
@@ -59,7 +63,7 @@ export const projects: Project[] = [
         id: 'section-0',
         heading: 'The problem',
         paragraphs: [
-          'Preparing instructional exercise videos meant manually isolating people from their backgrounds—roughly two to four minutes of editing per video. Repeating that work across a video collection made it a natural candidate for automation.',
+          'Preparing instructional exercise videos meant manually isolating people from their backgrounds, roughly two to four minutes of editing per video. Repeating that work across a video collection made it a natural candidate for automation.',
           'Detecting a person was only part of the problem. Ropes, benches, and exercise balls needed to remain visible, but segmentation models could classify them as background.',
         ],
       },
@@ -94,7 +98,7 @@ export const projects: Project[] = [
         id: 'section-4',
         heading: 'Lessons learned',
         paragraphs: [
-          'Integrating a model is different from building a dependable application around it. The useful result was a workflow the team could operate—not just a segmentation output.',
+          'Integrating a model is different from building a dependable application around it. The useful result was a workflow the team could operate, not just a segmentation output.',
           'Difficult scenes also made the limits of the models visible. Understanding why objects disappear or masks become unstable is a question I want to pursue beyond application-level integration.',
         ],
       },
@@ -113,7 +117,7 @@ export const projects: Project[] = [
   },
   {
     id: 'brandes',
-    title: 'Modernizing an Enterprise SQL Execution & Code Review Platform',
+    title: 'SQL Server Execution Service (SSES)',
     name: 'Modernizing a production platform.',
     category: 'Full-stack engineering',
     context:
@@ -343,9 +347,16 @@ export const projects: Project[] = [
   },
   {
     id: 'rov',
-    title: 'Below the Surface — MATE ROV World Championship',
+    title: 'Below the Surface · MATE ROV World Championship',
     name: 'Below the surface. On the world stage.',
     category: 'Robotics',
+    media: [
+      {
+        path: 'projects/rov/sub.jpg',
+        alt: 'The team’s remotely operated underwater vehicle in a pool.',
+        caption: 'Our ROV in the water. Photo supplied by Ophir Maor.',
+      },
+    ],
     context: 'San Diego Miramar College Engineering Club · 2025',
     description:
       'Helped lead engineering efforts at Miramar College, whose Water Jets team earned 2nd place in the Pioneer Class at the 2025 MATE ROV World Championship.',
@@ -387,7 +398,7 @@ export const projects: Project[] = [
         ],
       },
     ],
-    highlight: '2nd Place — 2025 World Championship, Pioneer Class',
+    highlight: '2nd Place · 2025 World Championship, Pioneer Class',
     awards: [
       '2nd place overall · Pioneer Class',
       'Best Marketing Display Award',
@@ -401,14 +412,16 @@ export const projects: Project[] = [
         label: '2025 competition coverage',
         url: 'https://www.competitionsciences.org/2025/08/27/how-2025-became-the-year-of-the-underdog-at-mate-rov-world-championship/',
       },
-      {
-        label: 'Water Jets technical documentation',
-        url: 'https://20693798.fs1.hubspotusercontent-na1.net/hubfs/20693798/TechReportArchives/2025/PN12%20Technical%20Documentation%20-%20Water%20Jets.pdf',
-      },
     ],
   },
 ];
 export const experience = [
+  [
+    'Current',
+    'i4NS · UC San Diego',
+    'Software Engineering Intern',
+    'A UC San Diego program working with the Department of War.',
+  ],
   [
     'Summer 2026',
     'Brandes Investment Partners',

@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import type { Project } from '../content/portfolio';
 import { projects } from '../content/portfolio';
-import ProjectVisual from '../components/ProjectVisual';
-import { projectMediaUrl } from '../utils/assets';
+import ProjectArtwork from '../components/ProjectArtwork';
 
 export default function ProjectPage({ project }: { project: Project }) {
   const heading = useRef<HTMLHeadingElement>(null);
@@ -13,10 +12,6 @@ export default function ProjectPage({ project }: { project: Project }) {
     projects[
       (projects.findIndex((p) => p.id === project.id) + 1) % projects.length
     ]!;
-  const media = (project.media ?? []).flatMap((image) => {
-    const url = projectMediaUrl(image.path);
-    return url ? [{ ...image, url }] : [];
-  });
   return (
     <main id="main" className={`container case-study case-${project.id}`}>
       <a className="text-link" href="#work">
@@ -28,7 +23,7 @@ export default function ProjectPage({ project }: { project: Project }) {
       </h1>
       <p className="case-intro">{project.description}</p>
       <p className="context">{project.context}</p>
-      <ProjectVisual id={project.id} />
+      <ProjectArtwork project={project} />
       {project.highlight && (
         <p className="case-highlight">{project.highlight}</p>
       )}
@@ -73,10 +68,11 @@ export default function ProjectPage({ project }: { project: Project }) {
               </a>
             ))}
           </nav>
-          <p className="fine">
-            Project graphics are conceptual illustrations. Any authentic
-            screenshots are captioned separately.
-          </p>
+          {['xometrics', 'brandes'].includes(project.id) && (
+            <p className="fine">
+              Project graphics are conceptual illustrations.
+            </p>
+          )}
           {project.note && <p className="case-note">{project.note}</p>}
         </aside>
         <div>
@@ -113,32 +109,6 @@ export default function ProjectPage({ project }: { project: Project }) {
                   <h3>{item.name}</h3>
                   <p>{item.detail}</p>
                 </article>
-              ))}
-            </section>
-          )}
-          {media.length > 0 && (
-            <section className="case-gallery">
-              <h2>Inside the prototype</h2>
-              {media.map((image) => (
-                <figure key={image.path}>
-                  <a
-                    href={image.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Enlarge screenshot in a new tab: ${image.alt}`}
-                  >
-                    <img
-                      src={image.url}
-                      alt={image.alt}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                  <figcaption>
-                    {image.caption}{' '}
-                    <span className="mint">Open full-size ↗</span>
-                  </figcaption>
-                </figure>
               ))}
             </section>
           )}

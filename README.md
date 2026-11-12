@@ -1,4 +1,4 @@
-# Ophir Maor — Portfolio foundation
+# Ophir Maor | Portfolio foundation
 
 A minimal React + TypeScript application built with Vite and Tailwind CSS.
 First complete portfolio draft: selected work, original conceptual project visuals, project notes, a synthetic regression experiment, experience, and contact. No deployment has been configured.
@@ -91,6 +91,10 @@ Authentic Study Agent screenshots are expected at:
 - `public/projects/study-agent/control-panel.png`
 - `public/projects/study-agent/session-summary.png`
 
-Both files are currently missing. The typed media entries already include captions and alt text. Add the real PNGs, restart Vite or rebuild, and the case study will display them with full-size links. Missing files are omitted rather than replaced with invented images. Screenshots represent one example session, not aggregate performance. ROV photos and actual Xometrics footage have not been supplied; existing graphics remain explicitly conceptual.
+Both authentic screenshots are included. The typed media entries already include captions and alt text. Add the real PNGs, restart Vite or rebuild, and the case study will display them with full-size links. Missing files are omitted rather than replaced with invented images. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Actual Xometrics footage has not been supplied; its graphic remains explicitly conceptual.
 
 Before deployment, verify the Xometrics throughput context, review the employer-facing descriptions for confidentiality, confirm your ROV role wording, and inspect screenshot content for information you do not want public.
+
+## Personal content update
+
+The homepage includes an i4NS Software Engineering Intern entry through UC San Diego, with the Department of War context supplied by Ophir. Detailed responsibilities and dates are deferred. The confirmed LinkedIn profile is configured in the centralized profile data. Airbnb concept art is hidden on both its card and case study. Study Agent uses the two original screenshots; ROV uses the supplied underwater photo. All editable website copy avoids em dashes; the original résumé PDF and its preview remain unchanged.

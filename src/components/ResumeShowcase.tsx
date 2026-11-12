@@ -51,9 +51,6 @@ export default function ResumeShowcase() {
               Download PDF <span aria-hidden="true">↓</span>
             </a>
           </div>
-          <p className="resume-note">
-            Academic résumé · Open for full-size reading.
-          </p>
         </>
       ) : (
         <>

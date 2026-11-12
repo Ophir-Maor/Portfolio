@@ -1,5 +1,6 @@
 import ResumeShowcase from '../components/ResumeShowcase';
-import ProjectVisual from '../components/ProjectVisual';
+import ProjectArtwork from '../components/ProjectArtwork';
+import { projectMediaUrl } from '../utils/assets';
 import { experience, profile, projects } from '../content/portfolio';
 import RegressionLab from '../demos/RegressionLab';
 export default function HomePage() {
@@ -49,7 +50,7 @@ export default function HomePage() {
                 href={`#/work/${p.id}`}
                 aria-label={`Explore ${p.context.split(' · ')[0]} project`}
               >
-                <ProjectVisual id={p.id} />
+                <ProjectArtwork project={p} compact />
                 <span className="project-open" aria-hidden="true">
                   ↗
                 </span>
@@ -122,30 +123,27 @@ export default function HomePage() {
         </div>
       </section>
       <section id="about" className="section container about-section">
-        <div className="about-mark" aria-hidden="true">
-          <span>OM.</span>
-          <p className="mono">CURIOUS BY DEFAULT.</p>
-          <div className="coordinate">
-            EXPLORE.
-            <br />
-            BUILD. REPEAT.
-          </div>
-        </div>
+        {projectMediaUrl(profile.portrait) && (
+          <img
+            className="about-portrait"
+            src={projectMediaUrl(profile.portrait)!}
+            alt="Ophir Maor in front of a Charlotte, North Carolina mural."
+            loading="lazy"
+            width="634"
+            height="1124"
+          />
+        )}
         <div>
           <p className="eyebrow">04 / THE PERSON BEHIND THE PROJECTS</p>
           <h2>
             Beyond the code<span className="mint">.</span>
           </h2>
           <p className="about-lead">{profile.about}</p>
-          <p>
-            Outside of software, you’ll find me surfing, training, gaming, or
-            working on something hands-on. Different ways to stay curious.
-          </p>
+          <p>{profile.personal}</p>
           <div className="interests mono">
-            <span>↗ Surfing</span>
-            <span>↗ Fitness</span>
-            <span>↗ Gaming</span>
-            <span>↗ Hands-on engineering</span>
+            {profile.interests.map((interest) => (
+              <span key={interest}>↗ {interest}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -169,10 +167,19 @@ export default function HomePage() {
               target="_blank"
               rel="noreferrer"
             >
-              Find me on GitHub ↗
+              GitHub ↗
             </a>
             {profile.email && <a href={`mailto:${profile.email}`}>Email ↗</a>}
-            {profile.linkedin && <a href={profile.linkedin}>LinkedIn ↗</a>}
+            {profile.linkedin && (
+              <a
+                className="text-link"
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+            )}
           </div>
         </div>
       </section>

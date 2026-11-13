@@ -1652,3 +1652,13 @@ svg {
     font-size: 11px;
   }
 }
+
+.projects-page h1 {
+  font-size: clamp(42px, 5vw, 64px);
+}
+.projects-page {
+  padding-top: 70px;
+}
+.experience-section {
+  border-top: 1px solid var(--border);
+}

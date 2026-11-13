@@ -60,7 +60,7 @@ If the PDF is absent at startup/build, links disappear and a clearly labeled pro
 
 ## Routing and future deployment
 
-Case studies use `#/work/project-id`. Section links use `#work`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
+Case studies use `#/work/project-id`. The project index uses `#/projects`; legacy `#work` links also open it. Homepage section links use `#about` and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
 
 `npm run build` produces static `dist/` output. Vite's base is `/` for the eventual custom domain `ophirmaor.com`. For repository-subpath hosting, adjust the Vite base. The Pages workflow is included; no CNAME or DNS changes were made. Canonical metadata names the intended domain, not a claim of current deployment.
 
@@ -96,13 +96,13 @@ Before deployment, verify the Xometrics throughput context, review the employer-
 
 ## Personal content update
 
-The homepage includes an i4NS Software Engineering Intern entry through UC San Diego, with the Department of War context supplied by Ophir. Detailed responsibilities and dates are deferred. The confirmed LinkedIn profile is configured in the centralized profile data. Airbnb concept art is replaced by the reported public-score Model Evolution chart on its card and case study. Study Agent uses the two original screenshots; ROV uses the supplied underwater photo. All editable website copy avoids em dashes; the original résumé PDF and its preview remain unchanged.
+The homepage includes an i4NS Software Engineering Intern entry through UC San Diego, with the Department of War context supplied by Ophir. Detailed responsibilities and dates are deferred. The confirmed LinkedIn profile is configured in the centralized profile data. Airbnb concept art is replaced by the reported public-score Model Evolution chart on its Projects page card and case study. Study Agent uses the two original screenshots; ROV uses the supplied underwater photo. All editable website copy avoids em dashes; the original résumé PDF and its preview remain unchanged.
 
 ## Airbnb Model Evolution
 
 `src/content/airbnbResults.ts` stores six selected, user-reported historical Kaggle **public leaderboard** checkpoints at full precision. Phase 5 is intentionally absent. These are not local cross-validation scores, private leaderboard results, or final rankings. Submission IDs, dates, the competition URL, and exported leaderboard records have not been supplied. Phase descriptions remain at the level provided by Ophir; no causal attribution to individual changes is inferred.
 
-`ModelEvolution.tsx` renders a compact, noninteractive chart inside the homepage project link and an expanded, selectable chart in the case study. Buttons support Enter/Space, arrow keys, Home, and End; the SVG markers also accept pointer input. Straight segments connect known checkpoints and do not imply measured intermediate results. The nonzero RMSE axis spans 78–84; the horizontal axis uses phase numbers, not elapsed time. Animation runs once on viewport entry and respects reduced motion. The improvement is calculated from the first checkpoint to the lowest reported score.
+`ModelEvolution.tsx` renders a compact, noninteractive chart inside the Projects page project link and an expanded, selectable chart in the case study. Buttons support Enter/Space, arrow keys, Home, and End; the SVG markers also accept pointer input. Straight segments connect known checkpoints and do not imply measured intermediate results. The nonzero RMSE axis spans 78–84; the horizontal axis uses phase numbers, not elapsed time. Animation runs once on viewport entry and respects reduced motion. The improvement is calculated from the first checkpoint to the lowest reported score.
 
 No saved out-of-fold predictions or ground-truth targets were found in this repository. Authentic error-by-price analysis needs aligned row/listing IDs, observed prices, out-of-fold predictions, fold assignments, and model/run identifiers. Include target-transform and inverse-transform details plus validation split definitions so residuals and RMSE can be calculated in original price units without leakage. These local validation results must remain separately labeled from Kaggle public scores. No synthetic error-by-price chart is presented as project evidence.
 
@@ -120,6 +120,10 @@ The release includes the original résumé unchanged, including its contact deta
 
 ## Xometrics videos
 
-The supplied `Brandon_51.forward_plus_reverse.mp4` and `Brandon_173.forward_plus_reverse.mp4` are copied unchanged to `public/projects/xometrics/video-demo.mp4` and `video-demo-2.mp4`. Both appear side by side on the homepage and case study with muted, inline autoplay and continuous looping. Each has its own keyboard-accessible Stop/Play button; Stop pauses that clip and resets it to the beginning without affecting the other. Reduced motion disables autoplay, with manual playback still available.
+The supplied `Brandon_51.forward_plus_reverse.mp4` and `Brandon_173.forward_plus_reverse.mp4` are copied unchanged to `public/projects/xometrics/video-demo.mp4` and `video-demo-2.mp4`. Both appear side by side on the Projects page and case study with muted, inline autoplay and continuous looping. Each has its own keyboard-accessible Stop/Play button; Stop pauses that clip and resets it to the beginning without affecting the other. Reduced motion disables autoplay, with manual playback still available.
 
 The shared `ProjectVideo` player uses a 4.5% display zoom inside an overflow-hidden portrait viewport, trimming roughly 2% off each edge to hide border artifacts. Source MP4 files are unchanged. Crop amounts are editable per clip in centralized project data. Full-source links remain available in the case study. No video-processing dependency or backend is required.
+
+## Homepage and Projects page
+
+The homepage is ordered Hero → About me → Experience & education → Contact. The full, unchanged project showcase is at `#/projects` rather than on the homepage. Existing `#/work/project-id` case-study links still work, and old `#work` links open the project index. The hash URL is deliberate: GitHub Pages can refresh it without server rewrites. A bare `/projects` URL is not configured. Navigation, the hero CTA, and case-study return links all point to the project index.

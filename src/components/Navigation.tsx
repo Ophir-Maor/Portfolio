@@ -31,12 +31,11 @@ export default function Navigation() {
           }
         }}
       >
-        {['Work', 'About'].map((label) => (
-          <a
-            key={label}
-            href={`#${label.toLowerCase()}`}
-            onClick={() => setOpen(false)}
-          >
+        {[
+          { label: 'Projects', href: '#/projects' },
+          { label: 'About', href: '#about' },
+        ].map(({ label, href }) => (
+          <a key={label} href={href} onClick={() => setOpen(false)}>
             {label}
           </a>
         ))}

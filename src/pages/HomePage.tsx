@@ -2,7 +2,6 @@ import ResumeShowcase from '../components/ResumeShowcase';
 import ProjectArtwork from '../components/ProjectArtwork';
 import { projectMediaUrl } from '../utils/assets';
 import { experience, profile, projects } from '../content/portfolio';
-import RegressionLab from '../demos/RegressionLab';
 export default function HomePage() {
   return (
     <main id="main">
@@ -19,47 +18,44 @@ export default function HomePage() {
           <p className="hero-description entrance">{profile.description}</p>
           <div className="hero-actions entrance">
             <a className="button" href="#work">
-              Explore my work <span>↘</span>
+              View my work <span>↘</span>
             </a>
           </div>
         </div>
         <ResumeShowcase />
-        <div className="hero-bottom mono">
-          <span>THINK DEEPLY. BUILD SOMETHING REAL.</span>
-          <a href="#work">SCROLL TO EXPLORE ↓</a>
-        </div>
       </section>
       <section id="work" className="section container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / IDEAS INTO IMPLEMENTATION</p>
-            <h2>
-              Selected work<span className="mint">.</span>
-            </h2>
+            <h2>Selected work</h2>
           </div>
           <p>
-            A selection of systems, experiments,
-            <br /> and products I’ve built.
+            Projects from internships, coursework,
+            <br /> and building with friends.
           </p>
         </div>
         <div className="projects-grid">
           {projects.map((p, i) => (
             <article key={p.id} className={`project project-${i}`}>
-              <a
-                className="project-image-link"
-                href={`#/work/${p.id}`}
-                aria-label={`Explore ${p.context.split(' · ')[0]} project`}
-              >
-                <ProjectArtwork project={p} compact />
-                <span className="project-open" aria-hidden="true">
-                  ↗
-                </span>
-              </a>
+              {p.videos?.length ? (
+                <div className="project-image-link">
+                  <ProjectArtwork project={p} compact />
+                </div>
+              ) : (
+                <a
+                  className="project-image-link"
+                  href={`#/work/${p.id}`}
+                  aria-label={`Explore ${p.context.split(' · ')[0]} project`}
+                >
+                  <ProjectArtwork project={p} compact />
+                  <span className="project-open" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+              )}
               <div className="project-copy">
                 <div className="project-meta mono">
-                  <span>
-                    {String(i + 1).padStart(2, '0')} / {p.title}
-                  </span>
+                  <span>{p.category}</span>
                 </div>
                 <h3>
                   <a href={`#/work/${p.id}`}>{p.name}</a>
@@ -75,40 +71,16 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a className="text-link" href={`#/work/${p.id}`}>
-                  Explore project <span>↗</span>
+                  Read project notes <span>↗</span>
                 </a>
               </div>
             </article>
           ))}
         </div>
       </section>
-      <section id="lab" className="section lab-section">
-        <div className="container">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">02 / A LITTLE LESS ABSTRACT</p>
-              <h2>
-                The lab<span className="mint">.</span>
-              </h2>
-            </div>
-            <p>
-              Small experiments that make
-              <br /> the engineering visible.
-            </p>
-          </div>
-          <RegressionLab />
-        </div>
-      </section>
       <section className="section container experience-section">
         <div>
-          <p className="eyebrow">03 / THE PATH SO FAR</p>
-          <h2>
-            Learning.
-            <br />
-            Building.
-            <br />
-            <span className="muted">Connecting dots.</span>
-          </h2>
+          <h2>Experience &amp; education</h2>
         </div>
         <div className="timeline">
           {experience.map(([date, company, role, description]) => (
@@ -127,57 +99,65 @@ export default function HomePage() {
           <img
             className="about-portrait"
             src={projectMediaUrl(profile.portrait)!}
-            alt="Ophir Maor in front of a Charlotte, North Carolina mural."
+            alt="Ophir Maor at Charlotte, North Carolina airport during a 5 a.m. layover on the way to New York in summer 2026."
             loading="lazy"
             width="634"
             height="1124"
           />
         )}
         <div>
-          <p className="eyebrow">04 / THE PERSON BEHIND THE PROJECTS</p>
-          <h2>
-            Beyond the code<span className="mint">.</span>
-          </h2>
+          <h2>About me</h2>
           <p className="about-lead">{profile.about}</p>
-          <p>{profile.personal}</p>
-          <div className="interests mono">
-            {profile.interests.map((interest) => (
-              <span key={interest}>↗ {interest}</span>
-            ))}
-          </div>
+          {profile.aboutParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <p className="about-photo-note">{profile.photoNote}</p>
         </div>
       </section>
       <section id="contact" className="section container contact-section">
-        <p className="eyebrow">05 / WHAT’S NEXT?</p>
-        <h2>
-          Let’s build something
-          <br />
-          <span className="mint">meaningful.</span>
-        </h2>
+        <h2>{profile.contact.heading}</h2>
         <div className="contact-bottom">
-          <p>
-            Interesting problems. Thoughtful people.
-            <br />
-            Software that makes a difference.
-          </p>
+          <p>{profile.contact.description}</p>
           <div className="contact-links">
-            <a
-              className="button"
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗
-            </a>
-            {profile.email && <a href={`mailto:${profile.email}`}>Email ↗</a>}
-            {profile.linkedin && (
+            {[
+              {
+                label: 'LinkedIn',
+                url: profile.linkedin,
+                detail: 'Send me a message',
+              },
+              { label: 'GitHub', url: profile.github, detail: 'See my code' },
+            ]
+              .filter((link) => link.url)
+              .map((link) => (
+                <a
+                  key={link.label}
+                  className="contact-button"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>
+                    <strong>{link.label}</strong>
+                    <span>{link.detail}</span>
+                  </span>
+                  <span className="contact-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ))}
+            {profile.email && (
               <a
-                className="text-link"
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
+                className="contact-button contact-email"
+                href={`mailto:${profile.email}`}
               >
-                LinkedIn ↗
+                <span>
+                  <strong>Email</strong>
+                  <span>{profile.email}</span>
+                </span>
+                <span className="contact-arrow" aria-hidden="true">
+                  ↗
+                </span>
               </a>
             )}
           </div>

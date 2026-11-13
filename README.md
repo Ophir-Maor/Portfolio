@@ -1,7 +1,7 @@
 # Ophir Maor | Portfolio foundation
 
 A minimal React + TypeScript application built with Vite and Tailwind CSS.
-First complete portfolio draft: selected work, original conceptual project visuals, project notes, a synthetic regression experiment, experience, and contact. GitHub Pages deployment is prepared in `.github/workflows/deploy.yml`; publication requires merging the release and configuring Pages.
+First complete portfolio draft: selected work, original conceptual project visuals, project notes, experience, and contact. GitHub Pages deployment is prepared in `.github/workflows/deploy.yml`; publication requires merging the release and configuring Pages.
 
 ## Local development
 
@@ -34,13 +34,12 @@ src/
   app/           Hash navigation and document titles
   components/    Navigation, résumé showcase, project illustrations
   content/       Typed, editable profile, projects, and experience
-  demos/         Interactive regression visualization
   layouts/       Shared site shell
   pages/         Homepage and reusable project-detail page
   styles/        Design tokens, responsive layout, reduced-motion support
-  utils/         Regression calculation and conditional resume URL
+  utils/         Public asset URLs and conditional resume URL
 public/          Monogram favicon, résumé PDF, first-page preview
-tests/          Regression correctness tests
+tests/          Asset and leaderboard-data tests
 ```
 
 ## Content and resume
@@ -61,7 +60,7 @@ If the PDF is absent at startup/build, links disappear and a clearly labeled pro
 
 ## Routing and future deployment
 
-Case studies use `#/work/project-id`. Section links use `#work`, `#lab`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
+Case studies use `#/work/project-id`. Section links use `#work`, `#about`, and `#contact`. Hash navigation supports refresh and direct links on GitHub Pages without server rewrites or another routing dependency. Tradeoffs: hash URLs and limited per-project search indexing/social previews; metadata is shared, with document titles updated client-side. If individual case-study SEO becomes a priority, use prerendered static pages later.
 
 `npm run build` produces static `dist/` output. Vite's base is `/` for the eventual custom domain `ophirmaor.com`. For repository-subpath hosting, adjust the Vite base. The Pages workflow is included; no CNAME or DNS changes were made. Canonical metadata names the intended domain, not a claim of current deployment.
 
@@ -69,7 +68,7 @@ Typography uses Google Fonts (Space Grotesk, Inter, IBM Plex Mono) with local sy
 
 ## Validation
 
-Run `npm run check`, `npm test`, and `npm run build`. Tests verify the synthetic least-squares fit, noise behavior, determinism, and residual properties. Manual review should verify all project facts, add real media and technical outcomes, and review the actual resume PDF before publishing.
+Run `npm run check`, `npm test`, and `npm run build`. Tests verify referenced images and reported leaderboard checkpoint data and improvement calculations. Manual review should verify all project facts, add real media and technical outcomes, and review the actual resume PDF before publishing.
 
 ## Environment and history
 
@@ -91,7 +90,7 @@ Authentic Study Agent screenshots are expected at:
 - `public/projects/study-agent/control-panel.png`
 - `public/projects/study-agent/session-summary.png`
 
-Both authentic screenshots are included. The typed media entries include captions, alt text, and full-size links. Referenced project images are committed public assets and served directly using the Vite base path. `npm test` checks that every referenced image is present. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Actual Xometrics footage has not been supplied; its graphic remains explicitly conceptual.
+Both authentic screenshots are included. The typed media entries include captions, alt text, and full-size links. Referenced project images are committed public assets and served directly using the Vite base path. `npm test` checks that every referenced image is present. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Xometrics now uses the supplied video demonstration at `public/projects/xometrics/video-demo.mp4`.
 
 Before deployment, verify the Xometrics throughput context, review the employer-facing descriptions for confidentiality, confirm your ROV role wording, and inspect screenshot content for information you do not want public.
 
@@ -118,3 +117,9 @@ Before the first production workflow can succeed, an owner must select **Setting
 For `https://ophirmaor.com`, keep Vite `base: '/'`, then set the custom domain in repository Pages settings when ready. A CNAME file alone does not configure an Actions-based Pages deployment, and no CNAME is added. Configure Porkbun DNS separately, verify GitHub’s domain/HTTPS checks, and enable HTTPS when available. Root-relative assets intentionally target the custom-domain root; the default `Ophir-Maor.github.io/Portfolio/` URL will not be a reliable preview with this base before domain setup. Hash case-study URLs such as `https://ophirmaor.com/#/work/airbnb` support direct navigation and refresh without server rewrites.
 
 The release includes the original résumé unchanged, including its contact details and employer descriptions, plus supplied photos/screenshots. Review those public-facing details before merging. Brandes narrative remains high-level with no proprietary screenshots or source. No employer can be certified to have approved publication by a code audit alone. The old tracked `.env` remains in existing Git history, not in the current tree or Pages artifact; the release does not rewrite history or revoke the old key.
+
+## Xometrics videos
+
+The supplied `Brandon_51.forward_plus_reverse.mp4` and `Brandon_173.forward_plus_reverse.mp4` are copied unchanged to `public/projects/xometrics/video-demo.mp4` and `video-demo-2.mp4`. Both appear side by side on the homepage and case study with muted, inline autoplay and continuous looping. Each has its own keyboard-accessible Stop/Play button; Stop pauses that clip and resets it to the beginning without affecting the other. Reduced motion disables autoplay, with manual playback still available.
+
+The shared `ProjectVideo` player uses a 4.5% display zoom inside an overflow-hidden portrait viewport, trimming roughly 2% off each edge to hide border artifacts. Source MP4 files are unchanged. Crop amounts are editable per clip in centralized project data. Full-source links remain available in the case study. No video-processing dependency or backend is required.

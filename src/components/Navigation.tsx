@@ -31,7 +31,7 @@ export default function Navigation() {
           }
         }}
       >
-        {['Work', 'Lab', 'About'].map((label) => (
+        {['Work', 'About'].map((label) => (
           <a
             key={label}
             href={`#${label.toLowerCase()}`}
@@ -50,7 +50,7 @@ export default function Navigation() {
           className="nav-contact"
           onClick={() => setOpen(false)}
         >
-          Let’s connect <span>↗</span>
+          Contact <span>↗</span>
         </a>
       </nav>
     </header>

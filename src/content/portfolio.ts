@@ -9,6 +9,12 @@ export interface ProjectMedia {
   alt: string;
   caption: string;
 }
+export interface ProjectVideoMedia {
+  path: string;
+  label: string;
+  caption: string;
+  cropScale: number;
+}
 export interface Project {
   id: string;
   title: string;
@@ -23,31 +29,55 @@ export interface Project {
   flow?: { label: string; steps: string[] };
   comparison?: { name: string; detail: string }[];
   media?: ProjectMedia[];
+  videos?: ProjectVideoMedia[];
   awards?: string[];
   sources?: { label: string; url: string }[];
 }
 export const profile = {
   name: 'Ophir Maor',
   github: 'https://github.com/Ophir-Maor',
-  email: '',
+  email: 'ophir.maor10@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ophir-maor/',
   portrait: 'ophir.jpg',
-  interests: ['Traveling', 'Working out', 'Friends', 'Video games', 'Surfing'],
-  personal:
-    'Outside of software, I love traveling, working out, hanging out with friends, playing video games, and surfing.',
+  aboutParagraphs: [
+    'Outside of work, I love surfing, getting a workout in, and spending time with friends.',
+    'I also love traveling and exploring new places. In summer 2026, I got to visit New York. The summer before, I spent a month traveling through Asia, primarily Japan, Thailand, and the Philippines.',
+    'When I’m staying in, I enjoy playing video games. Recently I’ve been getting back into Counter-Strike: Global Offensive, and I’ve always loved Grand Theft Auto and Call of Duty. I’m looking forward to Grand Theft Auto VI on PC!',
+  ],
+  photoNote:
+    'That’s me in the photo at the Charlotte, North Carolina airport at 5 a.m., on a layover on my way to New York in summer 2026 :)',
+  contact: {
+    heading: 'Feel free to reach out!',
+    description:
+      'Send me an email, message me on LinkedIn, or find my projects on GitHub.',
+  },
   headline: 'Building intelligent systems, from models to products.',
   description:
-    'Computer Science at UC San Diego. I work across machine learning, computer vision, and full-stack engineering, turning complex ideas into practical software.',
+    'I’m currently an undergraduate computer science student, and I’ll begin a master’s in computer science in 2027. My work spans machine learning, computer vision, and full-stack development.',
   about:
-    "I'm a computer science student and software engineer interested in building intelligent systems that solve real problems. I enjoy working across the stack, from experimenting with machine learning models to developing software that people actually use.",
+    'Thank you for taking a minute to look through my site! I’m Ophir, pronounced “o-fear.”',
 };
 export const projects: Project[] = [
   {
     id: 'xometrics',
     title: 'Automated Video Segmentation & Processing',
-    name: 'Automating the video-editing workflow.',
+    name: 'Xometrics video pipeline',
     category: 'Computer vision',
     context: 'Xometrics · Software Engineering Intern · Summer 2025',
+    videos: [
+      {
+        path: 'projects/xometrics/video-demo.mp4',
+        label: 'Xometrics exercise clip 1',
+        caption: 'Exercise clip 1, supplied by Ophir Maor.',
+        cropScale: 1.045,
+      },
+      {
+        path: 'projects/xometrics/video-demo-2.mp4',
+        label: 'Xometrics exercise clip 2',
+        caption: 'Exercise clip 2, supplied by Ophir Maor.',
+        cropScale: 1.045,
+      },
+    ],
     description:
       'Built a desktop computer vision pipeline combining segmentation, compositing, and batch processing. Adopted by Xometrics to reduce manual editing across large video collections.',
     technologies: [
@@ -118,7 +148,7 @@ export const projects: Project[] = [
   {
     id: 'brandes',
     title: 'SQL Server Execution Service (SSES)',
-    name: 'Modernizing a production platform.',
+    name: 'SQL Server Execution Service',
     category: 'Full-stack engineering',
     context:
       'Brandes Investment Partners · Software Engineering Intern · Summer 2026',
@@ -184,7 +214,7 @@ export const projects: Project[] = [
   {
     id: 'airbnb',
     title: 'Machine Learning for Airbnb Price Prediction',
-    name: 'Predicting prices. Testing assumptions.',
+    name: 'Airbnb price prediction',
     category: 'Machine learning',
     context: 'UCSD CSE 151A · Fall 2026 · Machine Learning Course Competition',
     description:
@@ -234,7 +264,7 @@ export const projects: Project[] = [
         heading: 'Experiments, not final rankings',
         paragraphs: [
           'The project progressed through repeated rounds of model development, validation, and ensembling during Fall 2026. I compared holdout results and performance across price ranges rather than choosing models solely for their sophistication.',
-          'The Model Evolution chart shows selected historical public leaderboard checkpoints reported during the competition. These scores are separate from local holdout results and do not establish a private leaderboard score or final placement. The separate regression lab uses synthetic data.',
+          'The Model Evolution chart shows selected historical public leaderboard checkpoints reported during the competition. These scores are separate from local holdout results and do not establish a private leaderboard score or final placement.',
         ],
       },
     ],
@@ -269,7 +299,7 @@ export const projects: Project[] = [
   {
     id: 'study-agent',
     title: 'AI Study Copilot',
-    name: 'Turning study context into useful review.',
+    name: 'AI Study Copilot',
     category: 'Applied AI',
     context: 'DiamondHacks 2026 · Three-person team · Hackathon prototype',
     description:
@@ -348,7 +378,7 @@ export const projects: Project[] = [
   {
     id: 'rov',
     title: 'Below the Surface · MATE ROV World Championship',
-    name: 'Below the surface. On the world stage.',
+    name: 'MATE ROV World Championship',
     category: 'Robotics',
     media: [
       {

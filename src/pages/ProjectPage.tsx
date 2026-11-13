@@ -68,7 +68,7 @@ export default function ProjectPage({ project }: { project: Project }) {
               </a>
             ))}
           </nav>
-          {['xometrics', 'brandes'].includes(project.id) && (
+          {!project.video && ['xometrics', 'brandes'].includes(project.id) && (
             <p className="fine">
               Project graphics are conceptual illustrations.
             </p>

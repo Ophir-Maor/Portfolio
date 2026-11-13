@@ -1518,3 +1518,69 @@ svg {
     padding-top: 40px;
   }
 }
+
+.project-video {
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+.project-video-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #101624;
+  height: 100%;
+}
+.project-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: contain;
+}
+.project-video-compact {
+  height: 100%;
+  min-height: 300px;
+}
+.project-video-detail {
+  margin-block: 35px;
+}
+.project-video figcaption {
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+.project-video figcaption a {
+  color: var(--color-mint);
+  margin-left: 12px;
+}
+.video-toggle {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid #a5b2c560;
+  border-radius: 3px;
+  background: #080b12e8;
+  color: var(--color-ink);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.video-toggle:hover {
+  border-color: var(--color-mint);
+}
+.project-image-link:has(video) {
+  display: block;
+}
+@media (max-width: 700px) {
+  .project-video-compact {
+    height: auto;
+  }
+  .project-video-compact video {
+    height: auto;
+  }
+}

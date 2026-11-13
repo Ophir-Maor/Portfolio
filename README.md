@@ -90,7 +90,7 @@ Authentic Study Agent screenshots are expected at:
 - `public/projects/study-agent/control-panel.png`
 - `public/projects/study-agent/session-summary.png`
 
-Both authentic screenshots are included. The typed media entries include captions, alt text, and full-size links. Referenced project images are committed public assets and served directly using the Vite base path. `npm test` checks that every referenced image is present. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Actual Xometrics footage has not been supplied; its graphic remains explicitly conceptual.
+Both authentic screenshots are included. The typed media entries include captions, alt text, and full-size links. Referenced project images are committed public assets and served directly using the Vite base path. `npm test` checks that every referenced image is present. Screenshots represent one example session, not aggregate performance. The supplied ROV photo is included at `public/projects/rov/sub.jpg`; the personal photo is at `public/ophir.jpg`. Xometrics now uses the supplied video demonstration at `public/projects/xometrics/video-demo.mp4`.
 
 Before deployment, verify the Xometrics throughput context, review the employer-facing descriptions for confidentiality, confirm your ROV role wording, and inspect screenshot content for information you do not want public.
 
@@ -117,3 +117,7 @@ Before the first production workflow can succeed, an owner must select **Setting
 For `https://ophirmaor.com`, keep Vite `base: '/'`, then set the custom domain in repository Pages settings when ready. A CNAME file alone does not configure an Actions-based Pages deployment, and no CNAME is added. Configure Porkbun DNS separately, verify GitHub’s domain/HTTPS checks, and enable HTTPS when available. Root-relative assets intentionally target the custom-domain root; the default `Ophir-Maor.github.io/Portfolio/` URL will not be a reliable preview with this base before domain setup. Hash case-study URLs such as `https://ophirmaor.com/#/work/airbnb` support direct navigation and refresh without server rewrites.
 
 The release includes the original résumé unchanged, including its contact details and employer descriptions, plus supplied photos/screenshots. Review those public-facing details before merging. Brandes narrative remains high-level with no proprietary screenshots or source. No employer can be certified to have approved publication by a code audit alone. The old tracked `.env` remains in existing Git history, not in the current tree or Pages artifact; the release does not rewrite history or revoke the old key.
+
+## Xometrics video
+
+The supplied `Brandon_51.forward_plus_reverse.mp4` is copied unchanged to `public/projects/xometrics/video-demo.mp4`. The homepage and case study use the shared `ProjectVideo` component with muted autoplay, continuous looping, inline mobile playback, and a keyboard-accessible pause/play button. Reduced-motion preferences disable autoplay; visitors can still start playback manually. Browser autoplay restrictions may also require pressing Play. The original portrait aspect ratio is preserved without cropping. No video-processing library or backend is required.

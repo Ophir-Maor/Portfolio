@@ -37,16 +37,22 @@ export default function HomePage() {
         <div className="projects-grid">
           {projects.map((p, i) => (
             <article key={p.id} className={`project project-${i}`}>
-              <a
-                className="project-image-link"
-                href={`#/work/${p.id}`}
-                aria-label={`Explore ${p.context.split(' · ')[0]} project`}
-              >
-                <ProjectArtwork project={p} compact />
-                <span className="project-open" aria-hidden="true">
-                  ↗
-                </span>
-              </a>
+              {p.video ? (
+                <div className="project-image-link">
+                  <ProjectArtwork project={p} compact />
+                </div>
+              ) : (
+                <a
+                  className="project-image-link"
+                  href={`#/work/${p.id}`}
+                  aria-label={`Explore ${p.context.split(' · ')[0]} project`}
+                >
+                  <ProjectArtwork project={p} compact />
+                  <span className="project-open" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+              )}
               <div className="project-copy">
                 <div className="project-meta mono">
                   <span>{p.category}</span>

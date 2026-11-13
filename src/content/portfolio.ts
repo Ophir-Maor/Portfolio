@@ -23,6 +23,7 @@ export interface Project {
   flow?: { label: string; steps: string[] };
   comparison?: { name: string; detail: string }[];
   media?: ProjectMedia[];
+  video?: { path: string; label: string; caption: string };
   awards?: string[];
   sources?: { label: string; url: string }[];
 }
@@ -56,6 +57,11 @@ export const projects: Project[] = [
     title: 'Automated Video Segmentation & Processing',
     name: 'Xometrics video pipeline',
     category: 'Computer vision',
+    video: {
+      path: 'projects/xometrics/video-demo.mp4',
+      label: 'Xometrics video-processing demonstration',
+      caption: 'Video demonstration supplied by Ophir Maor.',
+    },
     context: 'Xometrics · Software Engineering Intern · Summer 2025',
     description:
       'Built a desktop computer vision pipeline combining segmentation, compositing, and batch processing. Adopted by Xometrics to reduce manual editing across large video collections.',

@@ -1,3 +1,4 @@
+import ProjectVideo from './ProjectVideo';
 import ModelEvolution from './ModelEvolution';
 import type { Project } from '../content/portfolio';
 import { projectMediaUrl } from '../utils/assets';
@@ -10,6 +11,8 @@ export default function ProjectArtwork({
   project: Project;
   compact?: boolean;
 }) {
+  if (project.video)
+    return <ProjectVideo video={project.video} compact={compact} />;
   if (project.id === 'airbnb') return <ModelEvolution compact={compact} />;
   const media = (project.media ?? []).flatMap((image) => {
     const url = projectMediaUrl(image.path);

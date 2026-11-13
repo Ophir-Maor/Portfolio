@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Navigation from '../components/Navigation';
+import { goHome } from '../utils/navigation';
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
@@ -21,12 +22,12 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       <Navigation />
       {children}
       <footer className="container footer">
-        <a className="brand" href="#home">
+        <a className="brand" href={import.meta.env.BASE_URL} onClick={goHome}>
           OM<span>.</span>
         </a>
         <span>© {new Date().getFullYear()} Ophir Maor</span>
         <a
-          href="#home"
+          href={import.meta.env.BASE_URL}
           onClick={(event) => {
             event.preventDefault();
             window.scrollTo({

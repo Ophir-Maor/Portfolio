@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { goHome } from '../utils/navigation';
 import { resumeUrl } from '../utils/assets';
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -6,9 +7,12 @@ export default function Navigation() {
     <header className="site-header">
       <a
         className="brand"
-        href="#home"
+        href={import.meta.env.BASE_URL}
         aria-label="Ophir Maor home"
-        onClick={() => setOpen(false)}
+        onClick={(event) => {
+          setOpen(false);
+          goHome(event);
+        }}
       >
         OM<span>.</span>
       </a>

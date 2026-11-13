@@ -9,7 +9,11 @@ export default function App() {
   useEffect(() => {
     const update = () => setHash(window.location.hash);
     window.addEventListener('hashchange', update);
-    return () => window.removeEventListener('hashchange', update);
+    window.addEventListener('popstate', update);
+    return () => {
+      window.removeEventListener('hashchange', update);
+      window.removeEventListener('popstate', update);
+    };
   }, []);
   const isProject = hash.startsWith('#/work/');
   const isProjects = hash === '#/projects' || hash === '#work';

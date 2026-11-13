@@ -105,6 +105,7 @@ export default function HomePage() {
           {profile.aboutParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+          <p className="about-photo-note">{profile.photoNote}</p>
         </div>
       </section>
       <section id="contact" className="section container contact-section">

@@ -36,8 +36,9 @@ export const profile = {
     'Outside of work, I love surfing, getting a workout in, and spending time with friends.',
     'I also love traveling and exploring new places. In summer 2026, I got to visit New York. The summer before, I spent a month traveling through Asia, primarily Japan, Thailand, and the Philippines.',
     'When I’m staying in, I enjoy playing video games. Recently I’ve been getting back into Counter-Strike: Global Offensive, and I’ve always loved Grand Theft Auto and Call of Duty. I’m looking forward to Grand Theft Auto VI on PC!',
-    'That’s me in the photo at the Charlotte, North Carolina airport at 5 a.m., on a layover on my way to New York in summer 2026.',
   ],
+  photoNote:
+    'That’s me in the photo at the Charlotte, North Carolina airport at 5 a.m., on a layover on my way to New York in summer 2026 :)',
   contact: {
     heading: 'Feel free to reach out!',
     description:

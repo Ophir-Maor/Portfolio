@@ -68,11 +68,12 @@ export default function ProjectPage({ project }: { project: Project }) {
               </a>
             ))}
           </nav>
-          {!project.video && ['xometrics', 'brandes'].includes(project.id) && (
-            <p className="fine">
-              Project graphics are conceptual illustrations.
-            </p>
-          )}
+          {!project.videos?.length &&
+            ['xometrics', 'brandes'].includes(project.id) && (
+              <p className="fine">
+                Project graphics are conceptual illustrations.
+              </p>
+            )}
           {project.note && <p className="case-note">{project.note}</p>}
         </aside>
         <div>

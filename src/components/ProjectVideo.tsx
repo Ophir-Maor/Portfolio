@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import type { Project } from '../content/portfolio';
+import type { ProjectVideoMedia } from '../content/portfolio';
 import { projectMediaUrl } from '../utils/assets';
 
 export default function ProjectVideo({
   video,
   compact,
 }: {
-  video: NonNullable<Project['video']>;
+  video: ProjectVideoMedia;
   compact: boolean;
 }) {
   const player = useRef<HTMLVideoElement>(null);
@@ -28,35 +28,41 @@ export default function ProjectVideo({
       className={`project-video ${compact ? 'project-video-compact' : 'project-video-detail'}`}
     >
       <div className="project-video-frame">
-        <video
-          ref={player}
-          src={projectMediaUrl(video.path)}
-          autoPlay={!reduced}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label={video.label}
-          onPlay={() => setPaused(false)}
-          onPause={() => setPaused(true)}
-        >
-          Your browser does not support this video.{' '}
-          <a href={projectMediaUrl(video.path)}>Open the MP4</a>.
-        </video>
+        <div className="project-video-crop">
+          <video
+            ref={player}
+            style={{ transform: `scale(${video.cropScale})` }}
+            src={projectMediaUrl(video.path)}
+            autoPlay={!reduced}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label={video.label}
+            onPlay={() => setPaused(false)}
+            onPause={() => setPaused(true)}
+          >
+            Your browser does not support this video.{' '}
+            <a href={projectMediaUrl(video.path)}>Open the MP4</a>.
+          </video>
+        </div>
         <button
           className="video-toggle"
           type="button"
-          aria-label={`${paused ? 'Play' : 'Pause'} ${video.label}`}
+          aria-label={`${paused ? 'Play' : 'Stop'} ${video.label}`}
           onClick={() => {
             const element = player.current;
             if (!element) return;
             if (element.paused)
               void element.play().catch(() => setPaused(true));
-            else element.pause();
+            else {
+              element.pause();
+              element.currentTime = 0;
+            }
           }}
         >
-          {paused ? 'Play video' : 'Pause video'}{' '}
-          <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
+          {paused ? 'Play video' : 'Stop video'}{' '}
+          <span aria-hidden="true">{paused ? '▶' : '■'}</span>
         </button>
       </div>
       {!compact && (

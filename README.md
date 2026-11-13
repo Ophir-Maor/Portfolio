@@ -118,6 +118,8 @@ For `https://ophirmaor.com`, keep Vite `base: '/'`, then set the custom domain i
 
 The release includes the original résumé unchanged, including its contact details and employer descriptions, plus supplied photos/screenshots. Review those public-facing details before merging. Brandes narrative remains high-level with no proprietary screenshots or source. No employer can be certified to have approved publication by a code audit alone. The old tracked `.env` remains in existing Git history, not in the current tree or Pages artifact; the release does not rewrite history or revoke the old key.
 
-## Xometrics video
+## Xometrics videos
 
-The supplied `Brandon_51.forward_plus_reverse.mp4` is copied unchanged to `public/projects/xometrics/video-demo.mp4`. The homepage and case study use the shared `ProjectVideo` component with muted autoplay, continuous looping, inline mobile playback, and a keyboard-accessible pause/play button. Reduced-motion preferences disable autoplay; visitors can still start playback manually. Browser autoplay restrictions may also require pressing Play. The original portrait aspect ratio is preserved without cropping. No video-processing library or backend is required.
+The supplied `Brandon_51.forward_plus_reverse.mp4` and `Brandon_173.forward_plus_reverse.mp4` are copied unchanged to `public/projects/xometrics/video-demo.mp4` and `video-demo-2.mp4`. Both appear side by side on the homepage and case study with muted, inline autoplay and continuous looping. Each has its own keyboard-accessible Stop/Play button; Stop pauses that clip and resets it to the beginning without affecting the other. Reduced motion disables autoplay, with manual playback still available.
+
+The shared `ProjectVideo` player uses a 4.5% display zoom inside an overflow-hidden portrait viewport, trimming roughly 2% off each edge to hide border artifacts. Source MP4 files are unchanged. Crop amounts are editable per clip in centralized project data. Full-source links remain available in the case study. No video-processing dependency or backend is required.

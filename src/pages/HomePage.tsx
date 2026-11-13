@@ -37,7 +37,7 @@ export default function HomePage() {
         <div className="projects-grid">
           {projects.map((p, i) => (
             <article key={p.id} className={`project project-${i}`}>
-              {p.video ? (
+              {p.videos?.length ? (
                 <div className="project-image-link">
                   <ProjectArtwork project={p} compact />
                 </div>

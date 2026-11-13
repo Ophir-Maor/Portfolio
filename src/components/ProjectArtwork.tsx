@@ -11,8 +11,14 @@ export default function ProjectArtwork({
   project: Project;
   compact?: boolean;
 }) {
-  if (project.video)
-    return <ProjectVideo video={project.video} compact={compact} />;
+  if (project.videos?.length)
+    return (
+      <div className="project-video-grid">
+        {project.videos.map((video) => (
+          <ProjectVideo key={video.path} video={video} compact={compact} />
+        ))}
+      </div>
+    );
   if (project.id === 'airbnb') return <ModelEvolution compact={compact} />;
   const media = (project.media ?? []).flatMap((image) => {
     const url = projectMediaUrl(image.path);

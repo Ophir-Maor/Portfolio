@@ -14,8 +14,8 @@ export default function ProjectPage({ project }: { project: Project }) {
     ]!;
   return (
     <main id="main" className={`container case-study case-${project.id}`}>
-      <a className="text-link" href="#work">
-        ← All work
+      <a className="text-link" href="#/projects">
+        ← All projects
       </a>
       <p className="eyebrow">{project.category} / CASE STUDY</p>
       <h1 ref={heading} tabIndex={-1}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import SiteLayout from '../layouts/SiteLayout';
 import HomePage from '../pages/HomePage';
+import ProjectsPage from '../pages/ProjectsPage';
 import ProjectPage from '../pages/ProjectPage';
 import { projects } from '../content/portfolio';
 export default function App() {
@@ -11,28 +12,34 @@ export default function App() {
     return () => window.removeEventListener('hashchange', update);
   }, []);
   const isProject = hash.startsWith('#/work/');
+  const isProjects = hash === '#/projects' || hash === '#work';
   const project = projects.find((p) => hash === `#/work/${p.id}`);
   useEffect(() => {
     document.title = project
       ? `${project.context.split(' · ')[0]} | Ophir Maor`
-      : 'Ophir Maor | Software Engineer';
-    if (isProject) window.scrollTo({ top: 0, behavior: 'instant' });
+      : isProjects
+        ? 'Projects | Ophir Maor'
+        : 'Ophir Maor | Software Engineer';
+    if (isProject || isProjects)
+      window.scrollTo({ top: 0, behavior: 'instant' });
     else {
       const id = hash.slice(1) || 'home';
       requestAnimationFrame(() =>
         document.getElementById(id)?.scrollIntoView(),
       );
     }
-  }, [hash, isProject, project]);
+  }, [hash, isProject, isProjects, project]);
   return (
     <SiteLayout>
-      {project ? (
+      {isProjects ? (
+        <ProjectsPage />
+      ) : project ? (
         <ProjectPage project={project} />
       ) : isProject ? (
         <main id="main" className="container section">
           <h1>Project not found.</h1>
-          <a className="button" href="#work">
-            Back to selected work
+          <a className="button" href="#/projects">
+            Back to projects
           </a>
         </main>
       ) : (
